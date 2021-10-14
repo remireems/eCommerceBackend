@@ -28,14 +28,14 @@ router.post('/categories', (req, res) => {
 
 router.put('/categories/:id', (req, res) => {
   // update a category by its `id` value
-  Category.update(req.body, { where: { id: req.params.id }})
-    .then(() => res.sendStatus(200))
+  Category.update(req.body, { where: { id: req.params.id } })
+    .then(category => res.json(category))
     .catch(err => console.log(err))
 })
 
 router.delete('/categories/:id', (req, res) => {
   // delete a category by its `id` value
-  Category.destroy({where: { id: req.params.id }})
+  Category.destroy({ where: { id: req.params.id } })
     .then(() => res.sendStatus(200))
     .catch(err => console.log(err))
 })
