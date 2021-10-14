@@ -3,8 +3,6 @@ const { Product, Tag } = require('../models')
 
 const sequelize = require('../config/connection')
 
-
-
 class ProductTag extends Model {}
 
 ProductTag.init(
