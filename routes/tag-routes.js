@@ -1,7 +1,7 @@
 const router = require('express').Router()
-const { where } = require('sequelize/types')
-const { Tag, Product, ProductTag } = require('../../models')
-const { findAll } = require('../models/Product')
+// const { where } = require('sequelize/types')
+const { Tag, Product, ProductTag } = require('../models')
+// const { findAll } = require('../models/Product')
 
 // The `/api/tags` endpoint
 
@@ -30,14 +30,14 @@ router.post('/tags', (req, res) => {
 
 router.put('/tags/:id', (req, res) => {
   // update a tag's name by its `id` value
-  Tag.update(req.body, { where: {id: req.params.id }})
+  Tag.update(req.body, { where: { id: req.params.id } })
     .then(tag => res.json(tag))
     .catch(err => console.log(err))
 })
 
 router.delete('/tags/:id', (req, res) => {
   // delete on tag by its `id` value
-  Tag.destroy({ where: {id: req.params.id }})
+  Tag.destroy({ where: { id: req.params.id } })
     .then(() => res.sendStatus(200))
     .catch(err => console.log(err))
 })
