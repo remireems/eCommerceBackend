@@ -24,14 +24,14 @@ router.get('/tags/:id', (req, res) => {
 router.post('/tags', (req, res) => {
   // create a new tag
   Tag.create(req.body)
-    .then(tag => res.json(tag))
+    .then(newTag => res.json(newTag))
     .catch(err => console.log(err))
 })
 
 router.put('/tags/:id', (req, res) => {
   // update a tag's name by its `id` value
   Tag.update(req.body, { where: { id: req.params.id } })
-    .then(tag => res.json(tag))
+    .then(upTag => res.json(upTag))
     .catch(err => console.log(err))
 })
 
